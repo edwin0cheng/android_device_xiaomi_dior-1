@@ -324,32 +324,27 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
+    hostapd_default.conf \
     p2p_supplicant_overlay.conf \
-    wpa_supplicant_overlay.conf \
-    WCNSS_qcom_wlan_nv_h3gbl.bin \
-    WCNSS_qcom_wlan_nv_h3td.bin \
-    WCNSS_qcom_wlan_nv_h3w.bin
+    wpa_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     wificond \
     wifilogd \
+    hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
     libcurl \
-    libcnefeatureconfig \
     libqsap_sdk \
     libQWiFiSoftApCfg \
-    wcnss_service \
-    WCNSS_qcom_wlan_factory_nv.bin \
-    libwcnss_qmi
+    libwcnss_qmi \
+    wcnss_service
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0 \
     ro.disableWifiApFirmwareReload=true
 
 PRODUCT_COPY_FILES += \
