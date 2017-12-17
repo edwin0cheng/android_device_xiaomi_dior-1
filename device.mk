@@ -32,6 +32,15 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     messaging \
     Terminal
+    
+# HIDL HALs
+$(call inherit-product, $(LOCAL_PATH)/hidl-hals.mk)
+
+# ANT+
+#PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
 
 # ART
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -40,10 +49,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl \
     audiod \
     audio.a2dp.default \
     audio.primary.msm8226 \
@@ -67,7 +72,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     bdaddr_xiaomi \
     init.qcom.fm.sh \
-    android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
 PRODUCT_COPY_FILES += \
@@ -79,9 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl-legacy \
-    camera.device@1.0-impl-legacy \
-    libcamera_shim \
+    camera.msm8226 \
     libxml2 \
     camera.msm8226
 
@@ -91,21 +93,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_treble=true
 
-# Configstore
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-impl
-
 # Connectivity
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl \
     copybit.msm8226 \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
@@ -120,9 +113,6 @@ PRODUCT_PACKAGES += \
     libjni_livedisplay
 
 # DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
-
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
@@ -160,10 +150,6 @@ PRODUCT_PACKAGES += \
     libGLES_android \
     libstlport
 
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@1.0-impl
-
 # IPC router
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
@@ -187,7 +173,6 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
     lights.msm8226
 
 # Media
@@ -255,7 +240,6 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
     power.msm8226
 
 # Qualcomm
@@ -269,16 +253,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.dior.rc:root/init.dior.rc \
     $(LOCAL_PATH)/rootdir/init.dior.usb.rc:root/init.dior.usb.rc \
     $(LOCAL_PATH)/rootdir/ueventd.dior.rc:root/ueventd.dior.rc \
-    $(LOCAL_PATH)/rootdir/kernel_loggy.sh:root/kernel_loggy.sh
-
-ifeq ($(WITH_EXTRA_DBG),true)
-PRODUCT_PACKAGES += \
-    kernel_loggy.sh
-endif
-
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -295,7 +269,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:system/vendor/etc/sensors/_hals.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
     sensors.msm8226
 
  # Storage
@@ -306,19 +279,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl
-
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
-# USB HAL
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-service.dior
+# WCNSS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/vendor/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -327,7 +292,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
     wificond \
     wifilogd \
     hostapd \
@@ -344,11 +308,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     ro.disableWifiApFirmwareReload=true
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/vendor/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
