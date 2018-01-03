@@ -155,6 +155,7 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
 
 # SELinux
+include device/qcom/sepolicy/legacy-sepolicy.mk
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
