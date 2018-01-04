@@ -107,6 +107,7 @@ BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/lineagehw
 TARGET_NO_RPC := true
 
 # HIDL
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(LOCAL_PATH)/compatibility_matrix.xml
 
 # Init
