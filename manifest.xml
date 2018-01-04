@@ -78,13 +78,7 @@ included.
         <transport arch="32+64">passthrough</transport>
         <version>1.0</version>
         <interface>
-            <name>ICryptoFactory</name>
-            <instance>widevine</instance>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IDrmFactory</name>
-            <instance>widevine</instance>
+            <name>IGatekeeper</name>
             <instance>default</instance>
         </interface>
     </hal>
