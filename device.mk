@@ -83,7 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8226 \
+    libcamera_shim \
     libxml2 \
     camera.msm8226
 
