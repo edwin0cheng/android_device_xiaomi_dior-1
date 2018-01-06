@@ -101,7 +101,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 # MKHW
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/lineagehw
+BOARD_HARDWARE_CLASS := device/xiaomi/dior/lineagehw
     
 # No old RPC for prop
 TARGET_NO_RPC := true
