@@ -1,1 +1,1 @@
-add_lunch_combo lineage_dior-userdebug
+add_lunch_combo aicp_dior-userdebug

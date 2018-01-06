@@ -20,17 +20,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/dior/device.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/dior/dior-vendor.mk)
 
-# Inherit some common MK stuff (full)
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common AICP stuff
+$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
 
 # Product configuration
-PRODUCT_NAME := lineage_dior
+PRODUCT_NAME := aicp_dior
 PRODUCT_DEVICE := dior
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := HM NOTE 1LTE
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# AICP Device Maintainers
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    DEVICE_MAINTAINERS="Calvin Chen (MrDarkness)"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=dior
