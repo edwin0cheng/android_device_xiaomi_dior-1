@@ -20,6 +20,3 @@
 
 # Thermal
 /system/bin/thermal-engine                    u:object_r:thermal-engine_exec:s0
-
-# /vendor
-/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.0-service\.dior    u:object_r:hal_vibrator_default_exec:s0
