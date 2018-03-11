@@ -301,7 +301,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
-    wificond \
     wifilogd \
     hostapd \
     wpa_supplicant \
