@@ -251,10 +251,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 
-# Power
-PRODUCT_PACKAGES += \
-    power.msm8226
-
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
