@@ -178,9 +178,6 @@ DONT_DEXPREOPT_PREBUILTS += false
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
-# Time services
-BOARD_USES_QC_TIME_SERVICES := true
-
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
