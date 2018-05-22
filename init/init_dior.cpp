@@ -65,15 +65,15 @@ void vendor_load_properties()
     std::string modem = GetProperty("ro.boot.modem", "");
 
     if (modem == "LTEW") {
-        property_override("ro.product.model", "HM NOTE 1LTE");
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "HM NOTE 1LTE");
     }
 
     else if (modem == "LTETD") {
-        property_override("ro.product.model", "HM NOTE 1LTE TD");
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "HM NOTE 1LTE TD");
     }
 
-    property_override("ro.product.device", "dior");
-    property_override("ro.build.product", "dior");
+    property_override_dual("ro.product.device", "ro.vendor.product.device", "dior");
+    property_override_dual("ro.build.product", "ro.vendor.build.product", "dior");
     property_override("ro.build.description", "dior-user 4.4.4 KTU84P V8.2.1.0.KHIMIDL release-keys");
-    property_override("ro.build.fingerprint", "Xiaomi/dior/dior:4.4.4/KTU84P/V8.2.1.0.KHIMIDL:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/dior/dior:4.4.4/KTU84P/V8.2.1.0.KHIMIDL:user/release-keys");
 }
